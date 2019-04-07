@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.footer {
+   position: relative;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(177, 175, 175);
+   color: white;
+   text-align: center;
+}
+
+.con {
+	display: inline-flex;
+	text-align: center;
+}
+
+.footerItem {
+	padding: 15px;
+}
+</style>
+</head>
+	<body>
+
+
+	<div class="footer">
+		<div class="con">
+		
+			<div class="footerItem" id="bb">
+				<h5 style="text-align:center;">Beer Buddy</h5>
+				<p style="text-align:center;"><a href="{% url 'home' %}">Home</a></p>
+				<p style="text-align:center;"><a href="{% url 'booking' %}">Register for Event</a></p>
+			</div>
+
+			<div class="footerItem" id="about">
+				<h5 style="text-align:center;">About</h5>
+				<p style="text-align:center;"><a href="{% url 'about' %}">About Us</a></p>
+				<p style="text-align:center;"><a href="#">Privacy & Security</a></p>
+				<p style="text-align:center;"><a href="#">FAQ</a></p>
+			</div>
+
+			<div class="footerItem" id="contant">
+				<p style="text-align:center;">Have a question or feedback? Contact Us!</p>
+				<p style="text-align:center;"><a href="{% url 'contact' %}">Contact Us</a></p>
+			</div>
+			<div class="footerItem" id="follow">
+				<h5 style="text-align:center;">Follow Us</h5>
+
+			</div>
+		</div>
+		<div id="page-box">
+			<p style="text-align:center;"> ©2019 Global Kitchen. All rights reserved</p>
+		</div>
+
+	</div>
+	</body>
+</html> 

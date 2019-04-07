@@ -1,0 +1,1 @@
+web: gunicorn GlobalKitchen.wsgi --log-file -

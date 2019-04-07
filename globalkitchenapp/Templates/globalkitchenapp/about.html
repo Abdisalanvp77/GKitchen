@@ -1,0 +1,66 @@
+
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+   <!-- <link rel="stylesheet" type="text/css" href="{% static '../static/css/about.css' %}"> -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" integrity="sha256-wT6CFc7EKRuf7uyVfi+MQNHUzojuHN2pSw0YWFt2K5E=" crossorigin="anonymous" />
+
+    <title>About Page</title>
+  </head>
+
+  <style>
+    section {
+      padding: 4em 10%;
+    }
+  
+  </style>
+  <body>
+    
+ {% include "globalkitchenapp/navbar.html" %}
+      
+
+    <section class="about">
+        <h2>Global Kitchen</h2>
+        <p>Explore culture through food at Laurier International's Global Kitchen.</p>
+
+        <p>The Global Kitchen is available for Laurier student groups, faculty and staff to book              from the first day of class in September until the last day of exams in April. And                bookings are free!
+        </p>
+
+        <p>The space holds a maximum of 40 people and can facilitate the entire prep, cooking and             dining experience.
+        </p>
+
+        <p>The Global Kitchen is located on the first floor of Harris Hope House, 102 Albert                Street,in Waterloo, and is a five-minute walk from Laurier's Waterloo campus.
+        </p>
+
+        <h3>AMENITIES AT THE GLOBAL KITCHEN</h3>
+        <p>The Global Kitchen is equipped with everything you need to make your culinary event a success. It features:</p>
+        <ul>
+          <li>Two fridges</li>
+          <li>Two stoves/ovens</li>
+          <li>Two dishwashers</li>
+          <li>A counter where a group of up to 12 people can prep meals at the same time</li>
+          <li>A dining table that seats 20 people</li>
+          <li>Plates, utensils, cups, bakeware and cookware</li>
+        </ul>
+        <p>In keeping with Laurier's sustainability goals, no disposable plates, cups or utensils are permitted at the Global Kitchen. Any group booking the space is responsible for removing their own garbage.</p>
+
+                <h3>HOW TO BOOK THE GLOBAL KITCHEN</h3>
+        <p>To book the space for your event, to schedule a time to view the space or to get more information, please contact the Global Kitchen Steward at globalkitchen@wlu.ca.</p>
+
+                <h3>ABOUT HARRIS HOPE HOUSE</h3>
+        <p>The Global Kitchen is located in Harris Hope House, the former home of Ron Harris. Harris, a local homeopath, donated the house to the university in 2009 to continue his and his wife's support of the health and well-being of international students.</p>
+
+        <p>Harris Hope House is the current home for students of Laurier's WUSC-sponsored Student Refugee Program (SRP). The Global Kitchen is  a friendly, welcoming, and inclusive place for the Laurier community.</p>
+      </section>
+
+      {% include "globalkitchenapp/footer.html" %}
+
+  </body>
+</html>

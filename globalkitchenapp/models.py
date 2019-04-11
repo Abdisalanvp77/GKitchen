@@ -15,7 +15,11 @@ class RegisteredUser(models.Model):
     def __str__(self):
         return self.userName
 class Booking(models.Model):
-    id = models.AutoField(primary_key=True,
+    def number():
+        no = Booking.objects.count()
+        return no + 1
+
+    id = models.AutoField(primary_key=True, default=number,
                           editable=False, unique=True)
     eventName = models.CharField(max_length=200)
     bookerName = models.CharField(max_length=200)

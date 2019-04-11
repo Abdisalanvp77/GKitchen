@@ -3,6 +3,9 @@ from datetime import datetime
 from django.contrib.auth.models import User
 import uuid, random
 # Create your models here.
+
+
+
 class RegisteredUser(models.Model):
     userName = models.CharField(max_length=200)
     emailField = models.EmailField()
@@ -12,7 +15,7 @@ class RegisteredUser(models.Model):
     def __str__(self):
         return self.userName
 class Booking(models.Model):
-    id = models.IntegerField(primary_key=True, default=random.randint(0,1500), editable=False)
+    id = models.IntegerField(primary_key=True, editable=False)
     eventName = models.CharField(max_length=200)
     bookerName = models.CharField(max_length=200)
     bookerEmailField = models.EmailField()
@@ -25,6 +28,9 @@ class Booking(models.Model):
 
     def __str__(self):
         return self.eventName
+    
+    
+    # id = generate_id()
 class Contacted(models.Model):
     firstName = models.CharField(max_length=200)
     lastName = models.CharField(max_length=200)

@@ -10,19 +10,48 @@ from .models import Booking
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-
+from django.contrib.auth.models import User
 from datetime import date
 
 # Create your views here.
 def home(request):
     currentEvents = []
+    users = []
+    event_id = []
     bookingData = Booking.objects.all().order_by('eventStartTime').values()
-
+    registered_users_names = [] 
     for i in bookingData:
       if i['eventStartTime'] > date.today():
         currentEvents.append(i)
-    print(currentEvents)
-    return render(request, 'globalkitchenapp/index.html', {'bookingData': currentEvents})
+        event_id.append(i['created_by_id'])
+        user = User.objects.filter(id=i['created_by_id']).first()
+        
+    registered_users = User.objects.all().values()
+    # print(registered_users)
+    user_details = {}
+    for id in event_id:
+      for user in registered_users:
+        if id == user['id']:
+          print("the username is " + user['username'])
+          first = user['first_name']
+          last = user['last_name']
+          full_name = first + " " + last
+          registered_users_names.append(full_name)
+          users.append(full_name)
+          break
+
+   
+    assigned_stewards = []
+    # print(registered_users_names)
+    # for id in event_id:
+    #   user = registered_users_names[id-1]
+    #   assigned_stewards.append(user)
+      
+    # print(assigned_stewards)
+
+    # print(event_id)
+    
+    return render(request, 'globalkitchenapp/index.html', {'bookingData': currentEvents, 'userData': registered_users_names})
 
 @csrf_exempt
 def booking(request):
@@ -52,7 +81,8 @@ def fullcalender(request):
     data = request.POST
     print(data)
     if len(data) > 1:
-      Booking.objects.create(eventName=data.get('event'), bookerName=data.get('name'), bookerEmailField=data.get('email'), phoneField=data.get('phone'), eventStartTime=data.get('arrive'),eventEndTime=data.get('depart'),numberOfPeople=data.get('numberOfPeople'), comment=data.get('comments'), created_by=request.user)
+      Booking.objects.create(eventName=data.get('event'), bookerName=data.get('name'), bookerEmailField=data.get('email'), phoneField=data.get('phone'), eventStartTime=data.get(
+          'arrive'), eventEndTime=data.get('depart'), numberOfPeople=data.get('numberOfPeople'), comment=data.get('comments'), created_by=request.user)
     else:
       Booking.objects.filter(pk=data.get('pk')).delete()
     

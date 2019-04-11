@@ -15,7 +15,8 @@ class RegisteredUser(models.Model):
     def __str__(self):
         return self.userName
 class Booking(models.Model):
-    id = models.AutoField(primary_key=True, default=0, editable=False)
+    id = models.AutoField(primary_key=True, default=0,
+                          editable=False, unique=True)
     eventName = models.CharField(max_length=200)
     bookerName = models.CharField(max_length=200)
     bookerEmailField = models.EmailField()
